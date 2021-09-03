@@ -1,0 +1,39 @@
+.container {
+  padding: 0;
+}
+
+.tab-container {
+  min-height: calc(100vh - 59px);
+  padding: 30rpx;
+}
+
+.hourse-item {
+  border-radius: 48rpx;
+  background-color: #fff;
+  padding: 30rpx 80rpx 30rpx 36rpx;
+  margin-bottom: 30rpx;
+}
+
+.hourse-item .hourse-info {
+  flex: 0 0 64%;
+  font-size: 34rpx;
+}
+
+.hourse-item .hourse-info .hourse-address {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.hourse-item .room-count {
+  flex: 0 0 32%;
+  color: var(--theme);
+  font-size: 60rpx;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hourse-item .room-count .unit {
+  color: #999;
+  font-size: 24rpx;
+}

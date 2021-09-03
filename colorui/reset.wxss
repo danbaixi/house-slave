@@ -1,0 +1,37 @@
+page {
+  --theme: #525df0;
+  --gray: #e5e5e5;
+  background-color: #f5f6f7;
+  font-weight: 500;
+}
+
+.bg-theme {
+  background-color: var(--theme);
+  color: #fff;
+}
+
+.line-theme {
+  border-color: var(--theme);
+  color: var(--theme);
+}
+
+.text-theme {
+  color: var(--theme);
+}
+
+.cu-btn.lg {
+  height: 108rpx;
+  font-size: 42rpx;
+}
+
+.cu-btn.round {
+  border-radius: 34rpx;
+}
+
+.cu-btn.bg-white {
+  color: var(--theme);
+}
+
+.text-justify {
+  text-align: justify;
+}

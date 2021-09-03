@@ -1,0 +1,71 @@
+<view class="container">
+  <view wx:if="{{form}}" class="section search bg-theme shadow-blur">
+    <view class="section-title">搜索楼盘</view>
+    <view class="content">
+      <view class="select">
+        <picker bindchange="selectTown" value="{{selectedTownIndex}}" range="{{towns}}" range-key="name">
+          <view class="select-title">{{selectedTownIndex != null ?
+            towns[selectedTownIndex].name : '请选择镇区'}}</view>
+        </picker>
+      </view>
+      <view class="padding-top-lg">
+        <button bindtap="search" class="cu-btn block lg round bg-white">搜索</button>
+      </view>
+    </view>
+  </view>
+  <view bindtap="viewToday" data-index="{{index}}" wx:for="{{list}}" wx:key="key" class="section today-box shadow-blur">
+    <view class="section-title {{index == 0 ? 'arrow' : ''}}">
+      <text>{{item.name}}</text>
+    </view>
+    <view class="content">
+      <view class="data-box">
+        <view class="count-data">
+          <text class="count">{{item.hourseCount}}</text>
+        </view>
+        <view class="area-data">
+          <text class="count">{{item.hourseArea}}</text>
+          <text class="unit">㎡</text>
+        </view>
+        <view class="data-title">🏠 住宅</view>
+      </view>
+      <view class="data-box">
+        <view class="count-data">
+          <text class="count">{{item.shopCount}}</text>
+        </view>
+        <view class="area-data">
+          <text class="count">{{item.shopArea}}</text>
+          <text class="unit">㎡</text>
+        </view>
+        <view class="data-title">🏪 商铺</view>
+      </view>
+      <view class="data-box">
+        <view class="count-data">
+          <text class="count">{{item.officeCount}}</text>
+        </view>
+        <view class="area-data">
+          <text class="count">{{item.officeArea}}</text>
+          <text class="unit">㎡</text>
+        </view>
+        <view class="data-title">🏢 办公</view>
+      </view>
+      <view class="data-box">
+        <view class="count-data">
+          <text class="count">{{item.parkCount}}</text>
+        </view>
+        <view class="area-data">
+          <text class="count">{{item.parkArea}}</text>
+          <text class="unit">㎡</text>
+        </view>
+        <view class="data-title">🚗 车库</view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom-content">
+    <view class="bottom-item">
+      <navigator url="/pages/about/index?page=about" hover-class="none">关于项目</navigator>
+    </view>
+    <view class="bottom-item">
+      <navigator url="/pages/about/index?page=protocol" hover-class="none">免责声明</navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,79 @@
+<view class="container">
+  <van-tabs active="{{ tabActive }}" color="#525df0" line-height="5" swipeable sticky>
+    <van-tab title="楼盘明细">
+      <view class="tab-container">
+        <view bindtap="viewRoom" data-index="{{index}}" class="hourse-item item-arrow shadow-blur" wx:for="{{hourse}}"
+          wx:key="key">
+          <view class="flex justify-between align-center">
+            <view class="hourse-title">{{item.name}}</view>
+            <view class="room-count">
+              <text class="count">{{item.layer}}</text>
+              <text class="unit">层</text>
+              <text class="margin-left-sm count">{{item.total}}</text>
+              <text class="unit">套</text>
+            </view>
+          </view>
+          <view class="margin-top-sm hourse-info flex justify-between">
+            <view>
+              <view class="info-label">许可证号：</view>
+              <view class="info-value">{{item.num}}</view>
+            </view>
+            <view>
+              <view class="info-label">房屋用途：</view>
+              <view class="info-value">{{item.type}}</view>
+            </view>
+            <view>
+              <view class="info-label">销售面积：</view>
+              <view class="info-value">{{item.area}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="项目信息">
+      <view class="tab-container">
+        <view class="info-box">
+          <view class="info-title">
+            楼盘信息
+          </view>
+          <view class="info-list">
+            <view class="info-item shadow-blur" wx:for="{{project}}" wx:key="key">
+              <view class="info-label">{{item.key}}</view>
+              <view class="info-value">{{item.value ? item.value : '-'}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="info-box">
+          <view class="info-title">
+            项目信息
+          </view>
+          <view class="info-list">
+            <view class="info-item shadow-blur" wx:for="{{info}}" wx:key="key">
+              <view class="info-label">{{item.key}}</view>
+              <view class="info-value">{{item.value ? item.value : '-'}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="合同样本">
+      <view class="tab-container rich">
+        <rich-text nodes="{{contract}}"></rich-text>
+      </view>
+    </van-tab>
+    <van-tab title="其他楼盘">
+      <view class="tab-container">
+        <view bindtap="viewDetail" data-index="{{index}}" wx:for="{{all}}" wx:key="key" class="list-item item-arrow shadow-blur">
+          <view class="item-main">
+            <view class="item-title text-cut">{{item.name}}</view>
+            <view class="item-address text-cut">{{item.address}}</view>
+          </view>
+          <view class="item-count">
+            <view class="count">{{item.stock}}</view>
+            <view class="unit">可售套数</view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

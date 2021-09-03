@@ -1,0 +1,104 @@
+<wxs src="../../utils/tool.wxs" module="tools" />
+<view class="container">
+  <view class="thead-wrap">
+    <view class="tr thead">
+      <view class="num">房号</view>
+      <view class="area">面积</view>
+      <view class="prop">性质</view>
+      <view class="price">单价</view>
+      <view class="total">总价</view>
+    </view>
+  </view>
+  <view class="list-container">
+    <view class="info-box shadow-blur">
+      <view class="info-item">
+        <view class="info-data">{{minPrice}}</view>
+        <view class="info-key">最低单价</view>
+      </view>
+      <view class="info-item">
+        <view class="info-data">{{maxPrice}}</view>
+        <view class="info-key">最高单价</view>
+      </view>
+      <view class="info-item">
+        <view class="info-data">{{avgPrice}}</view>
+        <view class="info-key">平均单价</view>
+      </view>
+    </view>
+    <view class="room-list">
+      <view hidden="{{!item.show}}" wx:for="{{rooms}}" wx:key="key" class="room-item">
+        <view class="room-layer">{{item.name}}</view>
+        <view hidden="{{!room.show}}" wx:for="{{item.rooms}}" wx:for-item="room"
+          class="tr {{room.sale == '已售' ? 'sale' : (room.sale != '可售' && room.sale != '待售' ? 'unsale' : '')}}">
+          <view class="num">{{room.name}}</view>
+          <view class="area">{{room.area}}</view>
+          <view class="prop">{{room.prop}}</view>
+          <view class="price">{{room.price}}</view>
+          <view class="total">{{room.total}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{isEmpty}}" class="empty">
+      <empty></empty>
+    </view>
+  </view>
+  <view class="options section bg-white shadow-blur">
+    <button bindtap="showFileter" class="cu-btn lg round block bg-theme">筛选</button>
+    <!-- <button bindtap="sort" class="cu-btn lg round block bg-cyan">排序</button> -->
+    <!-- <button bindtap="export" class="cu-btn lg round block">导出</button> -->
+  </view>
+</view>
+<van-popup show="{{showFileter}}" round position="top" bind:close="onClose">
+  <view class="filter-box">
+    <view class="filter-section">
+      <viee class="filter-title">销售状态</viee>
+      <view class="filter-list">
+        <view bindtap="selectItem" data-type="sale" data-index="{{index}}" wx:for="{{saleFilter}}" wx:key="key"
+          class="filter-item {{tools.indexOf(tmpSelected.sale, index) ? 'selected' : ''}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    <view class="filter-section">
+      <viee class="filter-title">规划用途</viee>
+      <view class="filter-list">
+        <view bindtap="selectItem" data-type="prop" data-index="{{index}}" wx:for="{{propFilter}}" wx:key="key"
+          class="filter-item {{tools.indexOf(tmpSelected.prop, index) ? 'selected' : ''}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    <view class="filter-section">
+      <viee class="filter-title">户型面积</viee>
+      <view wx:if="{{areaFilter.length <= 20}}" class="filter-list">
+        <view bindtap="selectItem" data-type="area" data-index="{{index}}" wx:for="{{areaFilter}}" wx:key="key"
+          class="filter-item {{tools.indexOf(tmpSelected.area, index) ? 'selected' : ''}}">
+          {{item}}
+        </view>
+      </view>
+      <view wx:else>
+        <view class="filter-list input-list">
+          <view class="input-box"><input type="number" model:value="{{tmpAreaMin}}" placeholder="最小" /></view>
+          <view class="input-box"><input type="number" model:value="{{tmpAreaMax}}" placeholder="最大" /></view>
+        </view>
+      </view>
+    </view>
+    <view class="filter-section">
+      <viee class="filter-title">单价 <text class="unit">(万元)</text></viee>
+      <view class="filter-list input-list">
+        <view class="input-box"><input type="number" model:value="{{tmpPriceMin}}" placeholder="最低价" /></view>
+        <view class="input-box"><input type="number" model:value="{{tmpPriceMax}}" placeholder="最高价" /></view>
+      </view>
+    </view>
+    <view class="filter-section">
+      <viee class="filter-title">总价 <text class="unit">(万元)</text></viee>
+      <view class="filter-list input-list">
+        <view class="input-box"><input type="number" model:value="{{tmpTotalMin}}" placeholder="最低价" /></view>
+        <view class="input-box"><input type="number" model:value="{{tmpTotalMax}}" placeholder="最高价" /></view>
+      </view>
+    </view>
+    <view class="filter-options">
+      <button bindtap="reset" class="cu-btn round lg block margin-right">重置</button>
+      <button bindtap="confirm" class="cu-btn round lg block bg-theme">确定</button>
+    </view>
+  </view>
+</van-popup>

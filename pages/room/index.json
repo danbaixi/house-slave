@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "房间信息",
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index"
+  }
+}

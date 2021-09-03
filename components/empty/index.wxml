@@ -1,0 +1,4 @@
+<view class="empty-container" style="top:{{top}}rpx">
+  <view class="img"><image src="/asset/imgs/empty.svg" mode="widthFix"></image></view>
+  <view class="title">{{title}}</view>
+</view>

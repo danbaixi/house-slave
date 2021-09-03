@@ -1,0 +1,13 @@
+.bottom-content {
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-content .bottom-item {
+  color: #666;
+  margin-right: 60rpx;
+}
+
+.bottom-content .bottom-item:last-child {
+  margin-right: 0;
+}

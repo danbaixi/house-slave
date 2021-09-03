@@ -1,0 +1,85 @@
+<view class="container">
+  <view class="section bg-theme">
+    <view class="content {{showMore ? 'all' : ''}}">
+      <view class="form">
+        <view class="form-item">
+          <view class="form-item-title">镇区</view>
+          <view class="select">
+            <picker bindchange="selectForm" value="{{townIndex}}" data-key="townIndex" range="{{towns}}"
+              range-key="name">
+              <view class="select-title">{{towns[townIndex].name}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="form-item">
+          <view class="form-item-title">用途</view>
+          <view class="select">
+            <picker bindchange="selectForm" value="{{usageIndex}}" data-key="usageIndex" range="{{usageList}}">
+              <view class="select-title">{{usageList[usageIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="form-item">
+          <view class="form-item-title">项目名称</view>
+          <view class="input">
+            <input type="text" model:value="{{projectName}}" placeholder="选填" />
+          </view>
+        </view>
+        <view class="form-item">
+          <view class="form-item-title">项目地址</view>
+          <view class="input">
+            <input type="text" model:value="{{projectSite}}" placeholder="选填" />
+          </view>
+        </view>
+        <view class="form-item">
+          <view class="form-item-title">开发单位</view>
+          <view class="input">
+            <input type="text" model:value="{{developer}}" placeholder="选填" />
+          </view>
+        </view>
+        <view class="form-item">
+          <view class="form-item-title">建筑面积</view>
+          <view class="area-form">
+            <view class="input">
+              <input type="number" model:value="{{areaMin}}" placeholder="小" />
+            </view>
+            <view class="input">
+              <input type="number" model:value="{{areaMax}}" placeholder="大" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="padding-top-xs">
+        <button bindtap="search" class="cu-btn block lg round bg-white">搜索</button>
+      </view>
+    </view>
+    <view class="search-options flex justify-between">
+      <view class="reset-search" bindtap="reset">
+        {{projectName != '' || projectSite != '' || developer != '' || areaMin != '' || areaMax != '' ? '重置' : ''}}
+      </view>
+      <view bindtap="showMore" class="show-more">
+        {{showMore ? '收起' : '详细搜索'}} <text class="cuIcon-{{showMore ? 'fold' : 'unfold'}}"></text>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{search}}" class="list">
+    <view class="result">
+      <view class="result-title">搜索结果</view>
+      <view wx:if="{{list.length > 0}}" class="result-count">共{{list.length}}记录</view>
+    </view>
+    <view bindtap="viewDetail" data-index="{{index}}" wx:for="{{list}}" wx:key="key" class="list-item shadow-blur">
+      <view class="item-main">
+        <view class="item-title text-cut">{{item.name}}</view>
+        <view class="item-address text-cut">{{item.address}}</view>
+      </view>
+      <view class="item-count">
+        <view class="count">{{item.stock}}</view>
+        <view class="unit">可售套数</view>
+      </view>
+    </view>
+    <view class="bottom-tips" wx:if="{{list.length > 0}}">我也是有底线的～</view>
+    <block wx:else>
+      <empty top="20" title="暂无记录"></empty>
+    </block>
+  </view>
+</view>

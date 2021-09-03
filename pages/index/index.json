@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "房莞",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  }
+}

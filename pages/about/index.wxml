@@ -1,0 +1,34 @@
+<view class="container">
+  <block wx:if="{{page == 'protocol'}}">
+    <view class="section bg-white shadow-blur">
+      <view class="section-title">免责声明</view>
+      <view class="content">
+        <view class="row">1.此项目为个人学习开源项目，非官方应用，请勿用于商业服务！</view>
+        <view class="row">2.此项目所有数据来源「东莞市不动产登记中心」(dgfc.dg.gov.cn)，<text class="hlight">小程序本身不存储任何数据，仅用于展示。</text></view>
+        <view class="row">3.为减轻对官网对访问压力，会对数据缓存处理；<text class="hlight">数据仅供参考，请以官网公布数据为准。</text></view>
+        <view class="row">4.本项目代码全部免费开源，源码仅用于学习交流，禁止私用、商用，违者必究。</view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{page == 'about'}}">
+    <view class="section bg-white shadow-blur">
+      <view class="section-title">关于项目</view>
+      <view class="content">
+        <view class="row text-justify">不经意发现了「东莞市不动产登记中心」网站，能够查到新房备案价和库存。但它对移动端并不友好，于是就有了做这个小程序的想法。</view>
+        <view class="row hlight">「房莞」小程序的意义：更美观的数据，更便捷的查询，更精确的搜索。</view>
+      </view>
+    </view>
+    <view class="section bg-white shadow-blur">
+      <view class="section-title">关于开源</view>
+      <view class="content">
+        <view class="row" bindtap="copy" data-type="github">前后端均开源，项目地址: <text class="hlight url">{{github}}</text></view>
+      </view>
+    </view>
+    <view class="section bg-white shadow-blur">
+      <view class="section-title">关于作者</view>
+      <view class="content">
+        <view class="row" bindtap="copy" data-type="email">一个正在为买房努力的农民工，有任何疑问，请联系我：<text class="hlight url">{{email}}</text></view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,117 @@
+.container {
+  padding: 0;
+}
+
+.tab-container {
+  min-height: calc(100vh - 59px);
+  padding: 30rpx;
+}
+
+.hourse-list {
+  padding: 30rpx;
+}
+
+.hourse-item,
+.info-box {
+  border-radius: 48rpx;
+  background-color: #fff;
+  padding: 30rpx 36rpx;
+  margin-bottom: 30rpx;
+}
+
+.hourse-item {
+  padding: 30rpx 60rpx 30rpx 36rpx;
+}
+
+.hourse-item .hourse-title {
+  flex: 0 0 54%;
+  font-size: 32rpx;
+}
+
+.hourse-item .room-count {
+  color: var(--theme);
+  font-size: 60rpx;
+  font-weight: 700;
+}
+
+.hourse-item .room-count .unit {
+  color: #999;
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+
+.hourse-info .info-label {
+  color: #999;
+  font-size: 24rpx;
+  margin-bottom: 6rpx;
+}
+
+.info-box .info-title {
+  font-size: 56rpx;
+  font-weight: 700;
+  margin-bottom: 10rpx;
+}
+
+.info-box .info-list .info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.info-box .info-list .info-item .info-value {
+  text-align: right;
+}
+
+.info-box .info-list .info-item .info-label {
+  flex-shrink: 0;
+  color: #999;
+  margin-right: 20rpx;
+}
+
+.list-item {
+  display: flex;
+  border-radius: 48rpx;
+  background-color: #fff;
+  padding: 30rpx 80rpx 30rpx 36rpx;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.list-item .item-main {
+  width: 76%;
+}
+
+.list-item .item-title {
+  color: var(--black);
+  font-size: 42rpx;
+}
+
+.list-item .item-address {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.list-item .item-count {
+  text-align: center;
+}
+
+.list-item .item-count .count {
+  color: var(--theme);
+  font-size: 56rpx;
+  font-weight: 700;
+}
+
+.list-item .item-count .unit {
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+.rich {
+  background-color: #fff;
+  width: 100%;
+}
+rich-text {
+  word-break: break-all;
+}

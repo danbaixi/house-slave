@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/search/index",
+    "pages/project/index",
+    "pages/room/index",
+    "pages/today/index",
+    "pages/about/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 20000
+  },
+  "usingComponents": {
+    "empty": "/components/empty/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

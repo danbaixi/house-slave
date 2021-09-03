@@ -1,0 +1,120 @@
+@import './colorui/animation.wxss';
+@import './colorui/icon.wxss';
+@import './colorui/main.wxss';
+@import './colorui/reset.wxss';
+
+.container {
+  padding: 30rpx 40rpx;
+}
+
+.section {
+  border-radius: 60rpx;
+  padding: 40rpx;
+  margin-bottom: 50rpx;
+}
+
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section .content {
+  padding-top: 30rpx;
+}
+
+.section .section-title {
+  position: relative;
+  font-size: 52rpx;
+  font-weight: 500;
+}
+
+.section .section-title > text {
+  position: relative;
+}
+
+.section .section-title.arrow > text::after {
+  font-family: 'cuIcon';
+  content: '\e6a3';
+  position: absolute;
+  right: -50rpx;
+  font-size: 32rpx;
+  color: #c1c1c1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.select,
+input {
+  position: relative;
+  width: 100%;
+  padding: 0 30rpx;
+  border-radius: 34rpx;
+  background-color: #fff;
+  height: 108rpx;
+  line-height: 108rpx;
+  color: var(--black);
+  font-size: 42rpx;
+  letter-spacing: 2rpx;
+}
+
+.select::after {
+  position: absolute;
+  font-family: "cuIcon";
+  display: block;
+  content: "\e661";
+  top: 0;
+  right: 20rpx;
+  margin: auto;
+  color: var(--black);
+}
+
+
+.today-box {
+  background-color: #fff;
+}
+
+.today-box .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.today-box .content .data-box {
+  flex: 0 0 24%;
+  text-align: center;
+}
+
+.today-box .data-box .count-data .count {
+  font-size: 64rpx;
+  font-weight: 700;
+  color: var(--theme);
+}
+
+.today-box .data-box .area-data {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.today-box .data-box .area-data .unit {
+  margin-left: 6rpx;
+}
+
+.today-box .data-box .data-title {
+  color: #666;
+  margin-top: 10rpx;
+}
+
+.item-arrow {
+  position: relative;
+}
+
+.item-arrow::after {
+  font-family: 'cuIcon';
+  content: '\e6a3';
+  position: absolute;
+  right: 14rpx;
+  font-size: 32rpx;
+  color: #f1f1f1;
+  top: 50%;
+  transform: translateY(-50%);
+}

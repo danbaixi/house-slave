@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "今日成交",
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
+  }
+}

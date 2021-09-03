@@ -1,0 +1,20 @@
+.section-title {
+  color: var(--black);
+}
+
+.row {
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+  line-height: 58rpx;
+  color: #666;
+}
+
+.hlight {
+  color: var(--black);
+  font-weight: 700;
+}
+
+.url {
+  color: var(--theme);
+  text-decoration: underline;
+}
