@@ -5,7 +5,7 @@ Page({
    */
   data: {
     page: 'about',
-    github: 'github.com/danbaixi/hourse-slave',
+    github: 'github.com/danbaixi/house-slave',
     email: 'danbaixixi@gmail.com'
   },
 

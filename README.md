@@ -15,21 +15,25 @@
 
 项目前后端均开源：
 
-前端项目(当前)：https://github.com/danbaixi/hourse-slave
+前端项目(当前)：https://github.com/danbaixi/house-slave
 
-后端项目：https://github.com/danbaixi/hourse-slave-api
+后端项目：https://github.com/danbaixi/house-slave-api
 
 ## 如何开发
 
 1. 克隆此项目
 
 ```shell
-git clone git@github.com:danbaixi/hourse-slave.git
+git clone git@github.com:danbaixi/house-slave.git
 ```
 
 2. 使用微信开发者工具导入项目，用测试号，不使用云开发；
 3. 点击右上角「详情」-「本地设置」，☑️[使用npm模块]；
-4. 点击菜单栏「工具」，点击「构建npm」
+4. 终端执行：
+```shell
+npm install
+```
+5. 点击菜单栏「工具」，点击「构建npm」
 
 ## 使用场景
 
@@ -69,6 +73,6 @@ git clone git@github.com:danbaixi/hourse-slave.git
 
 请认真阅读并遵守以下开源协议
 
-`GPL` [GNU General Public License v3.0](https://github.com/danbaixi/hourse-slave/blob/main/LICENSE)
+`GPL` [GNU General Public License v3.0](https://github.com/danbaixi/house-slave/blob/main/LICENSE)
 
 本项目仅用于学习交流，禁止商用，违者必究。
