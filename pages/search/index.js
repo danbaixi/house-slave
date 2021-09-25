@@ -9,6 +9,7 @@ Page({
    */
   data: {
     showMore: false,
+    hideMore: true, // 隐藏表单次要信息
     usageList: contant.usage,
     townIndex: 0,
     usageIndex: 1,
@@ -18,7 +19,9 @@ Page({
     areaMin: '',
     areaMax: '',
     search: false,
-    list: []
+    list: [],
+    originalList: [], // 原始列表
+    sort: 'desc'
   },
 
   /**
@@ -68,6 +71,17 @@ Page({
     this.setData({
       showMore: !this.data.showMore
     })
+    if (!this.data.showMore) {
+      setTimeout(() => {
+        this.setData({
+          hideMore: true
+        })
+      }, 500);
+      return
+    }
+    this.setData({
+      hideMore: false
+    })
   },
 
   // 查看详情
@@ -103,6 +117,39 @@ Page({
     })
   },
 
+  // 排序
+  sort() {
+    let sort = this.data.sort
+    if (sort == 'desc') {
+      sort = 'asc'
+    } else if (sort == '') {
+      sort = 'desc'
+    } else {
+      // 默认
+      sort = ''
+    }
+    this.setData({
+      sort
+    })
+    this.sortList()
+  },
+
+  sortList() {
+    let list = this.data.originalList.slice(0)
+    if (this.data.sort == 'desc') {
+      list.sort((x,y) => {
+        return y.stock - x.stock
+      })
+    } else if (this.data.sort == 'asc') {
+      list.sort((x,y) => {
+        return x.stock - y.stock
+      })
+    }
+    this.setData({
+      list
+    })
+  },
+
   // 搜索
   search() {
     const that = this
@@ -116,10 +163,12 @@ Page({
       areaMin,
       areaMax
     }).then(res => {
+      const originalList = res.data.slice(0)
       that.setData({
         search: true,
-        list: res.data
+        originalList
       })
+      that.sortList()
     }).catch(err => {
       app.toast(err)
     })

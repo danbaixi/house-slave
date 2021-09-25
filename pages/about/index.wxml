@@ -27,7 +27,7 @@
     <view class="section bg-white shadow-blur">
       <view class="section-title">关于作者</view>
       <view class="content">
-        <view class="row" bindtap="copy" data-type="email">一个正在为买房努力的农民工，有任何疑问，请联系我：<text class="hlight url">{{email}}</text></view>
+        <view class="row" bindtap="copy" data-type="email">一个正在为买房努力的农民工，联系方式：<text class="hlight url">{{email}}</text></view>
       </view>
     </view>
   </block>

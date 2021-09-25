@@ -1,4 +1,6 @@
 const app = getApp()
+// 在页面中定义插屏广告
+let interstitialAd = null
 import {
   getData
 } from '../../api/index'
@@ -57,6 +59,29 @@ Page({
       url
     })
     this.getRoomList()
+    // 在页面onLoad回调事件中创建插屏广告实例
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-5a52a043c9051b93'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+    const adTime = wx.getStorageSync('ad_time')
+    if (!adTime || parseInt((new Date().getTime() - adTime) / 1000) > 300) {
+      setTimeout(() => {
+        // 在适合的场景显示插屏广告
+        if (interstitialAd) {
+          interstitialAd.show().then(() => {
+            // 记录广告时间
+            wx.setStorageSync('ad_time', new Date().getTime())
+          }).catch((err) => {
+            console.log(err)
+          })
+        }
+      }, 5000);
+    }
   },
 
   /**
@@ -217,23 +242,23 @@ Page({
         // 总价
         if (this.data.totalMin && (item.total < this.data.totalMin * 10000 || isNaN(Number(item.total)))) {
           item.show = false
-          ++count
+            ++count
           continue
         }
         if (this.data.totalMax && (item.total > this.data.totalMax * 10000 || isNaN(Number(item.total)))) {
           item.show = false
-          ++count
+            ++count
           continue
         }
         // 面积
         if (this.data.areaMin && item.area * 1 < this.data.areaMin) {
           item.show = false
-          ++count
+            ++count
           continue
         }
         if (this.data.areaMax && item.area * 1 > this.data.areaMax) {
           item.show = false
-          ++count
+            ++count
           continue
         }
         for (let key in selectedList) {
@@ -246,10 +271,10 @@ Page({
         // 计算
         if (item.show && item.price != '未知' && item.price > 0) {
           item.price = item.price * 1
-            if (minPrice == 0 || item.price < minPrice) minPrice = item.price
-            if (item.price > maxPrice) maxPrice = item.price
-            totalPrice += item.price
-            showCount++
+          if (minPrice == 0 || item.price < minPrice) minPrice = item.price
+          if (item.price > maxPrice) maxPrice = item.price
+          totalPrice += item.price
+          showCount++
         }
       }
       // 该层全部隐藏

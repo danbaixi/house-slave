@@ -19,37 +19,39 @@
             </picker>
           </view>
         </view>
-        <view class="form-item">
-          <view class="form-item-title">项目名称</view>
-          <view class="input">
-            <input type="text" model:value="{{projectName}}" placeholder="选填" />
-          </view>
-        </view>
-        <view class="form-item">
-          <view class="form-item-title">项目地址</view>
-          <view class="input">
-            <input type="text" model:value="{{projectSite}}" placeholder="选填" />
-          </view>
-        </view>
-        <view class="form-item">
-          <view class="form-item-title">开发单位</view>
-          <view class="input">
-            <input type="text" model:value="{{developer}}" placeholder="选填" />
-          </view>
-        </view>
-        <view class="form-item">
-          <view class="form-item-title">建筑面积</view>
-          <view class="area-form">
+        <block wx:if="{{!hideMore}}">
+          <view class="form-item">
+            <view class="form-item-title">项目名称</view>
             <view class="input">
-              <input type="number" model:value="{{areaMin}}" placeholder="小" />
-            </view>
-            <view class="input">
-              <input type="number" model:value="{{areaMax}}" placeholder="大" />
+              <input type="text" model:value="{{projectName}}" placeholder="选填" />
             </view>
           </view>
-        </view>
+          <view class="form-item">
+            <view class="form-item-title">项目地址</view>
+            <view class="input">
+              <input type="text" model:value="{{projectSite}}" placeholder="选填" />
+            </view>
+          </view>
+          <view class="form-item">
+            <view class="form-item-title">开发单位</view>
+            <view class="input">
+              <input type="text" model:value="{{developer}}" placeholder="选填" />
+            </view>
+          </view>
+          <view class="form-item">
+            <view class="form-item-title">建筑面积</view>
+            <view class="area-form">
+              <view class="input">
+                <input type="number" model:value="{{areaMin}}" placeholder="小" />
+              </view>
+              <view class="input">
+                <input type="number" model:value="{{areaMax}}" placeholder="大" />
+              </view>
+            </view>
+          </view>
+        </block>
       </view>
-      <view class="padding-top-xs">
+      <view wx:if="{{!hideMore}}" class="padding-top-xs">
         <button bindtap="search" class="cu-btn block lg round bg-white">搜索</button>
       </view>
     </view>
@@ -64,8 +66,14 @@
   </view>
   <view wx:if="{{search}}" class="list">
     <view class="result">
-      <view class="result-title">搜索结果</view>
-      <view wx:if="{{list.length > 0}}" class="result-count">共{{list.length}}记录</view>
+      <view class="result-content">
+        <view class="result-title">搜索结果 <text wx:if="{{list.length > 0}}" class="result-count">共{{list.length}}记录</text>
+        </view>
+      </view>
+      <view bindtap="sort" class="sort">排序<text class="cuIcon-sort"></text></view>
+    </view>
+    <view class="ad">
+      <ad-custom unit-id="adunit-330e0533dd633eb1"></ad-custom>
     </view>
     <view bindtap="viewDetail" data-index="{{index}}" wx:for="{{list}}" wx:key="key" class="list-item shadow-blur">
       <view class="item-main">

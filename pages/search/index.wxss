@@ -112,12 +112,29 @@ page {
 
 .result-title {
   font-size: 48rpx;
+  display: flex;
+  align-items: center;
+}
+
+.result-count {
+  font-size: 26rpx;
+  margin-left: 20rpx;
 }
 
 .result-count {
   color: #999;
 }
 
+.sort {
+  color: var(--theme);
+}
+
 .list {
   padding-bottom: 100rpx;
+}
+
+.ad {
+  border-radius: 48rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
 }
