@@ -4,6 +4,9 @@ let interstitialAd = null
 import {
   getData
 } from '../../api/index'
+import {
+  formatPrice
+} from '../../utils/util'
 Page({
 
   /**
@@ -365,6 +368,9 @@ Page({
             if (saleFilter.indexOf(room.sale) == -1) {
               saleFilter.push(room.sale)
             }
+            // 格式化价格
+            room.price = formatPrice(room.price)
+            room.total = formatPrice(room.total)
           })
         })
         // 排序

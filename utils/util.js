@@ -22,6 +22,16 @@ function formatRichText(html) {
   return newContent;
 }
 
+// 元 => 万元
+function formatPrice(price) {
+  price = parseInt(price)
+  if (price < 10000) {
+    return price
+  }
+  return `${(price / 10000).toFixed(2)}万`
+}
+
 module.exports = {
-  formatRichText
+  formatRichText,
+  formatPrice
 }
