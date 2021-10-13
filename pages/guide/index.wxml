@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="search bg-theme">
+    <input type="text" model:value="{{search}}" bindinput="search" placeholder="搜索楼盘、镇街" />
+    <view bindtap="clear" wx:if="{{search != ''}}" class="clear"><text class="cuIcon-close"></text></view>
+  </view>
+  <view class="content">
+    <block wx:if="{{total > 0}}">
+      <view class="header row">
+        <view class="col">片区</view>
+        <view class="col">镇街</view>
+        <view class="col lg">楼盘</view>
+        <view bindtap="sort" class="col lg">价格 <text class="cuIcon-order {{sort !== false ? 'text-theme' : ''}}"></text>
+        </view>
+      </view>
+      <view class="list">
+        <view hidden="{{!item.display}}" class="item row" wx:for="{{list}}" wx:key="key">
+          <view class="col">{{item.area}}</view>
+          <view class="col">{{item.town}}</view>
+          <view class="col lg">{{item.name}}</view>
+          <view class="col lg">{{item.price}}</view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <empty title="暂无相关记录"></empty>
+    </block>
+  </view>
+</view>

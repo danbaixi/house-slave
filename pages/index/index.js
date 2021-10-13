@@ -89,5 +89,11 @@ Page({
     }).catch(msg => {
       console.error(msg)
     })
+  },
+
+  goGuidePrice() {
+    wx.navigateTo({
+      url: '/pages/guide/index',
+    })
   }
 })

@@ -22,3 +22,11 @@ export function search(data) {
     method: 'POST'
   })
 }
+
+// 获取二手房指导价
+export function getGuidePrice(data) {
+  return request({
+    url: '/getGuidePrice',
+    data
+  })
+}

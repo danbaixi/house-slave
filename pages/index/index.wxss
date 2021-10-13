@@ -11,3 +11,17 @@
 .bottom-content .bottom-item:last-child {
   margin-right: 0;
 }
+
+.guide-price {
+  width: 100%;
+  height: 200rpx;
+  border-radius: 50rpx;
+  overflow: hidden;
+  margin-bottom: 50rpx;
+  box-shadow: 0 0 40rpx 6rpx rgba(0, 0, 0, .1);
+}
+
+.guide-price image {
+  width: 100%;
+  height: 100%;
+}

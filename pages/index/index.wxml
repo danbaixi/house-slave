@@ -13,6 +13,9 @@
       </view>
     </view>
   </view>
+  <view bindtap="goGuidePrice" class="guide-price">
+    <image mode="aspectFill" src="/asset/imgs/guide_price.png"></image>
+  </view>
   <view bindtap="viewToday" data-index="{{index}}" wx:for="{{list}}" wx:key="key" class="section today-box shadow-blur">
     <view class="section-title {{index == 0 ? 'arrow' : ''}}">
       <text>{{item.name}}</text>

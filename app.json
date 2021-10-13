@@ -5,7 +5,8 @@
     "pages/project/index",
     "pages/room/index",
     "pages/today/index",
-    "pages/about/index"
+    "pages/about/index",
+    "pages/guide/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
