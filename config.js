@@ -3,5 +3,5 @@ export default {
     dev: 'http://localhost:3000',
     prod: 'https://fg.yunxiaozhi.cn'
   },
-  env: 'prod'
+  env: 'dev'
 }
